@@ -1,0 +1,46 @@
+# Solicitar datos personales
+apellido = input("Ingresá tu apellido: ")
+nombre = input("Ingresá tu nombre: ")
+correo = input("Ingresá tu correo electrónico: ")
+
+# Validar y solicitar edad para definir rango etario
+while True:
+    try:
+        edad = int(input("Ingresá tu edad: "))
+        if edad < 0:
+            print("La edad no puede ser negativa.")
+        else:
+            break
+    except ValueError:
+        print("Edad inválida. Ingresá un número entero.")
+
+# Determinar rango etario
+if edad < 18:
+    rango = "Menor de edad"
+elif edad < 60:
+    rango = "Adulto"
+else:
+    rango = "Adulto mayor"
+
+# Inicializar variables para ingresos
+mes = 1
+total_ingresos = 0
+
+# Registrar ingresos mensuales con validación
+while mes <= 6:
+    try:
+        ingreso = float(input(f"Ingresá el ingreso del mes {mes}: "))
+        if ingreso < 0:
+            print("El ingreso no puede ser negativo. Intentalo de nuevo.")
+            continue
+        total_ingresos += ingreso
+        mes += 1
+    except ValueError:
+        print("Ingreso inválido. Por favor, ingresá un número.")
+
+# Mostrar resultados
+print("\n--- RESUMEN ---")
+print(f"Nombre completo: {apellido}, {nombre}")
+print(f"Correo electrónico: {correo}")
+print(f"Rango etario: {rango}")
+print(f"Total de ingresos en 6 meses: ${total_ingresos:.2f}")

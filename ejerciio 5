@@ -1,0 +1,37 @@
+# Datos personales
+apellido = input("Ingresá tu apellido: ")
+nombre = input("Ingresá tu nombre: ")
+correo = input("Ingresá tu dirección de correo: ")
+
+# Edad para rango etario
+edad = int(input("Ingresá tu edad: "))
+
+# Determinar rango etario
+if edad < 18:
+    rango = "Menor de edad"
+elif edad < 60:
+    rango = "Adulto"
+else:
+    rango = "Adulto mayor"
+
+# Ingreso mensual
+mes = 1
+total_ingresos = 0
+
+while mes <= 6:
+    try:
+        ingreso = float(input(f"Ingreso del mes {mes}: "))
+        if ingreso < 0:
+            print("❌ Valor no válido. Ingresá un número positivo.")
+        else:
+            total_ingresos += ingreso
+            mes += 1
+    except ValueError:
+        print("❌ Ingreso inválido. Debe ser un número.")
+
+# Mostrar resultados
+print("\n----- Resumen del Cliente -----")
+print(f"Nombre completo: {apellido.upper()}, {nombre.capitalize()}")
+print(f"Correo electrónico: {correo.lower()}")
+print(f"Rango etario: {rango}")
+print(f"Total acumulado en 6 meses: ${total_ingresos:.2f}")
